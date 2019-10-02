@@ -58,7 +58,7 @@ will return a 404.
     .. method:: get_callback_url(provider)
 
         This returns the URL which the remote provider should return the user after
-        authentication. It is called by :py:meth:`OAuthRedirect.get_redirect_url` to construct 
+        authentication. It is called by :py:meth:`OAuthRedirect.get_redirect_url` to construct
         the appropriate redirect URL. By default the reverses the ``allaccess-callback``
         URL name with the passed provider name.
 
@@ -76,7 +76,7 @@ request, they are returned to the callback specifed in the initial redirect. :py
 defines the default behaviour on this callback. This view extends from the base
 `View <https://docs.djangoproject.com/en/1.8/ref/class-based-views/#view>`_ class.
 By default it is mapped to the ``allaccess-callback`` URL name. Similar to the :py:class:`OAuthRedirect` view,
-this view takes one keyword argument ``provider`` which corresponds to the ``Provider.name`` 
+this view takes one keyword argument ``provider`` which corresponds to the ``Provider.name``
 for an enabled provider. If no enabled provider is found for the name, this view will return a 404.
 
 .. class:: OAuthCallback()
@@ -128,12 +128,12 @@ for an enabled provider. If no enabled provider is found for the name, this view
 
     .. method:: get_or_create_user(provider, access, info)
 
-        This method is used by :py:meth:`OAuthCallback.handle_new_user` to construct a new user with a 
-        random username, no email and an unusable password. You may want to override 
-        this user to complete more of their infomation or attempt to match them 
+        This method is used by :py:meth:`OAuthCallback.handle_new_user` to construct a new user with a
+        random username, no email and an unusable password. You may want to override
+        this user to complete more of their infomation or attempt to match them
         to an existing user by either their username or email.
 
-        :py:meth:`OAuthCallback.handle_new_user` will connect the user to the ``access`` record and 
+        :py:meth:`OAuthCallback.handle_new_user` will connect the user to the ``access`` record and
         does not need to be handled here.
 
         :note:
@@ -284,7 +284,7 @@ the URL pattern.
 
 .. code-block:: python
 
-    from django.core.urlresolvers import reverse
+    from django.urls import reverse
     from allaccess.views import OAuthRedirect
 
     class AssociateRedirect(OAuthRedirect):
